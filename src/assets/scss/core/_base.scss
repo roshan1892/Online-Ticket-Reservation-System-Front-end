@@ -1,0 +1,149 @@
+// All the common styles must be here.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-size: 1rem;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  @include transition(color 0.5s ease);
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none !important;
+    text-decoration: none !important;
+  }
+}
+
+.body-loader {
+  @include body-loader;
+}
+
+.error-message {
+  color: $red;
+  font-size: 90%;
+  vertical-align: top;
+  &::before {
+    content: "⚠";
+    font-size: 1rem;
+    margin-right: 5px;
+    vertical-align: top;
+  }
+}
+
+.border-bottom-heading {
+  font-weight: 500;
+  border-bottom: 1px solid rgb(158, 158, 158);
+  padding-bottom: 8px;
+}
+
+.dotted-input {
+  vertical-align: middle !important;
+  .MuiInput-root {
+    &.MuiInput-underline {
+      &::before {
+        border-bottom-style: dotted !important;
+      }
+    }
+  }
+}
+
+.dotted-select {
+  margin: 0 !important;
+  min-width: 54px !important;
+  text-align: center !important;
+  &.MuiInput-root {
+    &.MuiInput-underline {
+      &::before {
+        border-bottom-style: dotted !important;
+      }
+      .MuiSelect-root {
+        background: none;
+        &.MuiSelect-select {
+          padding: 5px !important;
+        }
+      }
+    }
+  }
+  > svg {
+    &.MuiSelect-icon {
+      display: none;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+// React Select Style Overwrites Start
+.select-md {
+  .react-select__control {
+    min-height: 56px;
+  }
+}
+.react-select__menu {
+  z-index: 9 !important;
+}
+// React Select Style Overwrites End
+
+// Material table Style Overwrites Start
+.MuiTable-root {
+  &.table-bordered {
+    border: 1px solid #000;
+    thead {
+      &.align-center {
+        tr {
+          th {
+            text-align: center;
+          }
+        }
+      }
+      tr {
+        th {
+          border-bottom: 1px solid #000;
+          border-right: 1px solid #000;
+        }
+      }
+    }
+    tbody {
+      &.align-center {
+        tr {
+          td {
+            text-align: center;
+          }
+        }
+      }
+      tr {
+        td {
+          border-color: #000;
+          border-width: 0 1px 1px 0;
+          border-style: solid;
+        }
+      }
+    }
+  }
+}
+// Material table Style Overwrites End
